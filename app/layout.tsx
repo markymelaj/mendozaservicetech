@@ -2,28 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ServiceTech V4 Mendoza | Gestión para servicios técnicos",
+  metadataBase: new URL("https://servicetech-v4.vercel.app"),
+  title: "ServiceTech V4 | Distribuido por EL LOCAL",
   description:
-    "Software de gestión para servicios técnicos de celulares en Mendoza: órdenes, clientes, caja, inventario, tickets, etiquetas y vista móvil.",
-  keywords: [
-    "software servicio técnico celulares Mendoza",
-    "gestión taller celulares Mendoza",
-    "sistema reparaciones celulares Argentina",
-    "ServiceTech Mendoza",
-  ],
+    "Software para servicios técnicos de celulares distribuido por EL LOCAL · Tecnología y Accesorios · NIT 86088441-6.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "ServiceTech V4 Mendoza | Tu taller bajo control",
+    title: "ServiceTech V4 | Tu taller bajo control · EL LOCAL",
     description:
-      "Software de gestión para servicios técnicos de celulares en Mendoza. Solicitá una demostración a Ignacio Echegaray por WhatsApp.",
+      "Software de gestión para servicios técnicos de celulares. Solicita una demostración por WhatsApp.",
     type: "website",
-    locale: "es_AR",
+    locale: "es_CO",
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es-AR">
+    <html lang="es">
       <body>{children}</body>
     </html>
   );

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root { --ink:#06141b; --ink-2:#0a2029; --cyan:#19e3d5; --cyan-soft:#7bf8ee; --violet:#c44cff; --paper:#f4f7f5; --white:#fff; --dark-text:#122c35; }
+:root { --ink:#06141b; --ink-2:#0a2029; --cyan:#19e3d5; --cyan-soft:#7bf8ee; --violet:#c44cff; --paper:#f4f7f5; --white:#fff; --dark-text:#122c35; --font-geist-sans:Inter,"Segoe UI",Arial,sans-serif; --font-geist-mono:"Cascadia Code","SFMono-Regular",Consolas,monospace; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:var(--ink); color:var(--white); font-family:var(--font-geist-sans),Arial,sans-serif; }
@@ -10,6 +10,9 @@ img { display:block; max-width:100%; }
 
 .site-header { position:sticky; top:0; z-index:50; height:76px; padding:0 5vw; display:flex; align-items:center; justify-content:space-between; background:rgba(6,20,27,.88); border-bottom:1px solid rgba(25,227,213,.2); backdrop-filter:blur(18px); }
 .brand { display:flex; align-items:center; gap:12px; }
+.local-logo { position:relative; width:92px; height:52px; display:block; flex:0 0 auto; overflow:hidden; border:1px solid rgba(255,255,255,.22); border-radius:8px; background:#14191d; box-shadow:0 0 26px rgba(25,227,213,.12); }
+.local-logo img { object-fit:cover; }
+.local-logo-large { width:170px; height:96px; border-radius:14px; box-shadow:0 18px 38px rgba(0,0,0,.28),0 0 32px rgba(25,227,213,.12); }
 .brand-mark { width:42px; height:42px; display:grid; place-items:center; border-radius:12px; background:linear-gradient(135deg,var(--cyan) 0 48%,var(--violet) 52%); color:var(--ink); font-weight:950; letter-spacing:-.05em; box-shadow:0 0 24px rgba(25,227,213,.24); }
 .brand strong { display:block; font-size:1.03rem; letter-spacing:-.02em; }
 .brand small { display:block; margin-top:2px; font-family:var(--font-geist-mono); font-size:.56rem; color:var(--cyan-soft); letter-spacing:.12em; }
@@ -115,10 +118,13 @@ img { display:block; max-width:100%; }
 .mobile-copy .button-outline { border-color:#168e89; color:#075f5b; background:transparent; }
 
 .fit-section { padding:95px 0; }
-.fit-card { display:grid; grid-template-columns:1fr 1fr; gap:7vw; padding:54px; border:1px solid rgba(25,227,213,.25); border-radius:20px; background:linear-gradient(145deg,rgba(17,52,62,.85),rgba(9,29,37,.85)); }
+.fit-card { display:grid; grid-template-columns:1fr .9fr; gap:4vw 7vw; padding:54px; border:1px solid rgba(25,227,213,.25); border-radius:20px; background:linear-gradient(145deg,rgba(17,52,62,.85),rgba(9,29,37,.85)); }
 .fit-card h2 { margin-top:15px; font-size:clamp(2rem,3.3vw,3.2rem); }
 .fit-tags { display:flex; align-content:center; flex-wrap:wrap; gap:10px; }
 .fit-tags span { height:fit-content; padding:12px 15px; border:1px solid #2b5962; border-radius:999px; color:#b6cacc; background:rgba(4,20,27,.34); font-size:.82rem; }
+.distributor-seal { grid-column:1/-1; display:flex; align-items:center; gap:18px; margin-top:8px; padding-top:24px; border-top:1px solid rgba(123,248,238,.15); }
+.distributor-seal p { margin:0; color:#a8bdc0; font:.7rem/1.65 var(--font-geist-mono); letter-spacing:.06em; }
+.distributor-seal strong { color:var(--cyan-soft); text-transform:uppercase; }
 .faq-section { padding:100px 0 120px; }
 .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:44px; }
 .faq-grid details { padding:22px 24px; border:1px solid #24444d; border-radius:14px; background:#091d25; }
@@ -152,6 +158,8 @@ footer>a:last-child { color:var(--cyan-soft); }
   .site-header { height:68px; padding:0 18px; }
   .site-header .button-small { min-height:38px; padding:0 12px; font-size:.72rem; }
   .brand-mark { width:38px; height:38px; }
+  .local-logo { width:68px; height:39px; border-radius:6px; }
+  .local-logo-large { width:138px; height:78px; border-radius:11px; }
   .brand small { display:none; }
   .hero { min-height:auto; padding:65px 20px 70px; gap:46px; }
   .hero h1 { font-size:clamp(3rem,14vw,4.4rem); }
@@ -178,6 +186,7 @@ footer>a:last-child { color:var(--cyan-soft); }
   .preview-label { right:12px; top:12px; }
   .fit-section { padding:70px 0; }
   .fit-card { padding:30px 24px; }
+  .distributor-seal { align-items:flex-start; }
   .cta-section { padding:90px 20px; }
   footer { align-items:flex-start; flex-direction:column; padding:36px 20px 95px; }
   .whatsapp-float { right:14px; bottom:14px; }
