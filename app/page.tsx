@@ -4,12 +4,23 @@ import { useState } from "react";
 import Image from "next/image";
 
 const whatsapp =
-  "https://wa.me/5492614857620?text=Hola%20Ignacio%2C%20quiero%20conocer%20ServiceTech%20V4%20para%20mi%20servicio%20t%C3%A9cnico%20en%20Mendoza.";
+  "https://wa.me/5492614857620?text=Hola%2C%20quiero%20conocer%20ServiceTech%20V4%20para%20mi%20servicio%20t%C3%A9cnico%20en%20Argentina.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ServiceTech V4",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Windows",
+  areaServed: { "@type": "Country", name: "Argentina" },
+  description:
+    "Sistema de gestión para servicios técnicos con órdenes, clientes, caja, inventario, tickets, etiquetas, vista móvil y facturación ARCA integrada.",
+};
 
 const features = [
   ["01", "Órdenes bajo control", "Recepción, diagnóstico, estado, técnico, prioridad y entrega reunidos en una sola ficha."],
   ["02", "Clientes e historial", "Consulta trabajos anteriores, datos de contacto, notas y archivos sin revisar conversaciones viejas."],
-  ["03", "Caja y rentabilidad", "Registra cobros, señas, costos de reparación y gastos para conocer el resultado real del taller."],
+  ["03", "Facturación ARCA integrada", "Emite comprobantes electrónicos y registra cobros, señas, costos y gastos sin salir del flujo del taller."],
   ["04", "Tickets y etiquetas", "Genera PDF, ticket térmico y etiquetas con código QR o código de barras desde la misma orden."],
   ["05", "Inventario y ventas", "Punto de venta, productos, stock, proveedores, compras, cotizaciones y devoluciones integrados."],
   ["06", "Marca de tu negocio", "Personaliza nombre, logo, datos comerciales, moneda, garantía y documentos del servicio técnico."],
@@ -26,23 +37,27 @@ export default function Home() {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="ServiceTech, inicio">
           <span className="brand-mark">ST</span>
-          <span><strong>ServiceTech</strong><small>MOBILE REPAIR // MENDOZA</small></span>
+          <span><strong>ServiceTech</strong><small>GESTIÓN TÉCNICA // ARGENTINA</small></span>
         </a>
         <nav aria-label="Navegación principal">
           <a href="#funciones">Funciones</a><a href="#experiencia">Experiencia</a><a href="#preguntas">Preguntas</a>
         </nav>
-        <a className="button button-small" href={whatsapp} target="_blank" rel="noreferrer">Hablar con Ignacio</a>
+        <a className="button button-small" href={whatsapp} target="_blank" rel="noreferrer">Hablar con un asesor</a>
       </header>
 
       <section className="hero" id="inicio">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
-          <div className="eyebrow"><span /> Gestión para servicios técnicos de celulares en Mendoza</div>
+          <div className="eyebrow"><span /> Gestión para servicios técnicos de celulares en Argentina</div>
           <h1>Menos chats sueltos.<br /><em>Más reparaciones bajo control.</em></h1>
-          <p className="hero-text">Gestioná órdenes, clientes, caja, inventario, tickets y seguimiento desde un solo sistema, pensado para el ritmo real de los talleres de Mendoza.</p>
+          <p className="hero-text">Gestioná órdenes, clientes, caja, inventario, tickets y facturación ARCA desde un solo sistema, pensado para el ritmo real de los talleres argentinos.</p>
           <div className="hero-actions">
             <a className="button button-primary" href={whatsapp} target="_blank" rel="noreferrer">Solicitar demostración <span>↗</span></a>
             <a className="text-link" href="#funciones">Ver todo lo que incluye <span>↓</span></a>
@@ -50,7 +65,7 @@ export default function Home() {
           <div className="hero-proof">
             <div><strong>LOCAL</strong><span>Trabaja en tu PC</span></div>
             <div><strong>QR</strong><span>Consulta desde el móvil</span></div>
-            <div><strong>MENDOZA</strong><span>Atención directa</span></div>
+            <div><strong>ARCA</strong><span>Facturación integrada</span></div>
           </div>
         </div>
 
@@ -64,6 +79,7 @@ export default function Home() {
               width={1440}
               height={900}
               priority
+              unoptimized
               sizes="(max-width: 1050px) 90vw, 55vw"
             />
           </div>
@@ -73,7 +89,7 @@ export default function Home() {
       </section>
 
       <section className="signal-strip" aria-label="Principales capacidades">
-        <span>ÓRDENES</span><i /><span>DIAGNÓSTICO</span><i /><span>CLIENTES</span><i /><span>CAJA</span><i /><span>INVENTARIO</span><i /><span>SOPORTE LOCAL</span>
+        <span>ÓRDENES</span><i /><span>DIAGNÓSTICO</span><i /><span>CLIENTES</span><i /><span>CAJA</span><i /><span>INVENTARIO</span><i /><span>FACTURACIÓN ARCA</span>
       </section>
 
       <section className="problem-section section-wrap">
@@ -120,6 +136,7 @@ export default function Home() {
             alt={theme === "neon" ? "Interfaz Neon Mobile Lab de ServiceTech" : "Interfaz normal de ServiceTech"}
             width={1440}
             height={900}
+            unoptimized
             sizes="(max-width: 900px) 90vw, 55vw"
           />
         </div>
@@ -127,7 +144,7 @@ export default function Home() {
 
       <section className="mobile-section">
         <div className="section-wrap mobile-layout">
-          <div className="mobile-image"><div className="scan-line" /><Image src="/product/mobile-qr.png" alt="Configuración de acceso móvil local mediante QR" width={1440} height={900} sizes="(max-width: 900px) 90vw, 50vw" /></div>
+          <div className="mobile-image"><div className="scan-line" /><Image src="/product/mobile-qr.png" alt="Configuración de acceso móvil local mediante QR" width={1440} height={900} unoptimized sizes="(max-width: 900px) 90vw, 50vw" /></div>
           <div className="mobile-copy">
             <div className="section-kicker">MÓVIL LOCAL</div>
             <h2>Mira los trabajos pendientes desde el teléfono.</h2>
@@ -141,7 +158,7 @@ export default function Home() {
       <section className="fit-section section-wrap">
         <div className="fit-card">
           <div><div className="section-kicker">PENSADO PARA</div><h2>Negocios que reparan, venden y necesitan crecer con orden.</h2></div>
-          <div className="fit-tags"><span>Servicio técnico de celulares</span><span>Venta de accesorios</span><span>Reparación de tablets y PC</span><span>Ciudad de Mendoza y Gran Mendoza</span><span>Godoy Cruz, Maipú y Guaymallén</span><span>Las Heras y alrededores</span></div>
+          <div className="fit-tags"><span>Servicio técnico de celulares</span><span>Venta de accesorios</span><span>Reparación de tablets y PC</span><span>Disponible en toda Argentina</span><span>AMBA, Centro y Cuyo</span><span>NOA, NEA y Patagonia</span></div>
         </div>
       </section>
 
@@ -151,7 +168,9 @@ export default function Home() {
           <details open><summary>¿Se puede personalizar con mi marca?</summary><p>Sí. Podés configurar el nombre del negocio, logo, contacto, pesos argentinos, garantía y datos visibles en los documentos.</p></details>
           <details><summary>¿Necesita conexión permanente a internet?</summary><p>La operación principal funciona localmente en Windows. La vista móvil trabaja dentro de la misma red Wi-Fi del taller.</p></details>
           <details><summary>¿Imprime tickets y etiquetas?</summary><p>Sí. Permite asignar impresoras para A4, ticket térmico y etiquetas, además de generar copias PDF.</p></details>
-          <details><summary>¿Hay atención para Mendoza?</summary><p>Sí. Ignacio Echegaray es el distribuidor para Mendoza y te acompaña por WhatsApp con la demostración, compra y puesta en marcha.</p></details>
+          <details><summary>¿Permite facturación con ARCA?</summary><p>Sí. Incluye facturación electrónica integrada a ARCA para centralizar la gestión y la emisión de comprobantes dentro del sistema.</p></details>
+          <details><summary>¿Hay atención en toda Argentina?</summary><p>Sí. Un asesor comercial te acompaña por WhatsApp con la demostración, compra y puesta en marcha desde cualquier provincia.</p></details>
+          <details><summary>¿Cómo solicito una demostración?</summary><p>Escribí por WhatsApp al asesor comercial. Podrás conocer el sistema, consultar la puesta en marcha y resolver dudas antes de comprar.</p></details>
         </div>
       </section>
 
@@ -160,19 +179,19 @@ export default function Home() {
         <div className="cta-inner">
           <div className="section-kicker">DA EL SIGUIENTE PASO</div>
           <h2>Tu taller puede trabajar con<br /><span>más orden desde hoy.</span></h2>
-          <p>Hablá directamente con Ignacio, conocé el sistema y resolvé tus dudas antes de comprar.</p>
+          <p>Hablá con un asesor comercial, conocé el sistema y resolvé tus dudas antes de comprar.</p>
           <a className="button button-primary button-large" href={whatsapp} target="_blank" rel="noreferrer">Conversar por WhatsApp <span>↗</span></a>
-          <small>Ignacio Echegaray · Distribuidor Mendoza · +54 9 261 485-7620</small>
+          <small>Asesor comercial · Atención en Argentina · +54 9 261 485-7620</small>
         </div>
       </section>
 
       <footer>
         <a className="brand footer-brand" href="#inicio"><span className="brand-mark">ST</span><span><strong>ServiceTech</strong><small>GESTIÓN TÉCNICA // V4</small></span></a>
-        <p>Software para servicios técnicos de celulares en Mendoza, Argentina.</p>
-        <a href={whatsapp} target="_blank" rel="noreferrer">Ignacio Echegaray · WhatsApp +54 9 261 485-7620</a>
+        <p>Software para servicios técnicos de celulares en toda Argentina.</p>
+        <a href={whatsapp} target="_blank" rel="noreferrer">Asesor comercial · WhatsApp +54 9 261 485-7620</a>
       </footer>
 
-      <a className="whatsapp-float" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Hablar con Ignacio Echegaray por WhatsApp"><span>WA</span><b>Consultar</b></a>
+      <a className="whatsapp-float" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Hablar con un asesor comercial por WhatsApp"><span>WA</span><b>Consultar</b></a>
     </main>
   );
 }

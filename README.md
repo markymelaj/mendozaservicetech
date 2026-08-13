@@ -1,13 +1,17 @@
-# ServiceTech V4 Mendoza — Landing comercial
+# ServiceTech V4 Argentina — landing comercial
 
-Landing pública de ServiceTech V4 orientada al mercado de Mendoza, Argentina.
+Landing pública de ServiceTech V4 para servicios técnicos de celulares en toda Argentina.
 
-Contacto comercial y distribución:
+La propuesta incluye gestión de órdenes, clientes, caja, inventario, tickets, etiquetas, vista móvil local y facturación electrónica integrada a ARCA.
 
-- **Ignacio Echegaray**
+## Contacto comercial
+
+- **Rol:** Asesor comercial
 - **WhatsApp:** +54 9 261 485-7620
 
 ## Desarrollo local
+
+Requiere Node.js 22 o superior.
 
 ```bash
 npm install
@@ -16,19 +20,19 @@ npm run dev
 
 Abrí `http://localhost:3000`.
 
-## Verificación de producción
+## Verificación
 
 ```bash
-npm run typecheck
-npm run build
+npm run lint
+npm run build:vercel
 ```
 
 ## Publicar desde GitHub en Vercel
 
 1. Creá un repositorio vacío en GitHub.
-2. Subí el contenido de esta carpeta.
-3. En Vercel, elegí **Add New → Project**.
-4. Importá el repositorio y mantené la configuración detectada para Next.js.
+2. Subí todo el contenido de esta carpeta.
+3. En Vercel, elegí **Add New → Project** e importá el repositorio.
+4. Vercel usará la configuración incluida en `vercel.json`.
 5. Presioná **Deploy**.
 
 No requiere variables de entorno, base de datos ni servicios adicionales.
